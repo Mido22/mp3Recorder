@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "name": "Face Blur",
+  "description": "A sample MDN app that uses getUserMedia API.",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Ban Mido",
+    "url": "https://github.com/Mido22"
+  },
+  "default_locale": "en",
+  "orientation": "portrait"
+}
+

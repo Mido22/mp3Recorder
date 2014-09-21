@@ -1,4 +1,4 @@
-mp3Recorder
-===========
+face-blur
+=========
 
-for capturing audio and making mp3 only using javascript and html5
+  An attempt at making a face detection for videos, either for making the person anonmyous. The plan is to develop a library that detects face faster than anything else out there.
