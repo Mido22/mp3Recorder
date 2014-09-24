@@ -1,6 +1,6 @@
 {
   "version": "0.1",
-  "name": "Face Blur",
+  "name": "Javascript MP3 Recorder",
   "description": "A sample MDN app that uses getUserMedia API.",
   "launch_path": "/index.html",
   "developer": {

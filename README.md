@@ -1,4 +1,22 @@
-face-blur
+Javascript MP3 recorder
 =========
 
-  An attempt at making a face detection for videos, either for making the person anonmyous. The plan is to develop a library that detects face faster than anything else out there.
+
+This is mash up demo for [libmp3lame.js][0] and [Recorderjs][1].
+
+[0]: https://github.com/akrennmair/libmp3lame-js
+[1]: https://github.com/mattdiamond/Recorderjs
+
+
+
+License
+-------
+
+See file LICENSE for further information.
+
+
+Author
+------
+
+Ban Mido
+
