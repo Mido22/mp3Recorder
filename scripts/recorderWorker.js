@@ -41,9 +41,9 @@ function init(config){
       cmd: 'init',
       config: {
         samplerate: sampleRate, 
-        channels: 2,
-    mode: 1, // setting mode as Stereo.
-    bitrate: 128
+        channels: 1,
+    mode: 3, // setting mode as Stereo.
+    bitrate: 64
       }
     });
 }

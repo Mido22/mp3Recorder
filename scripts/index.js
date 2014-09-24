@@ -8,7 +8,7 @@ $(document).ready(function() {
   audio_context = new AudioContext;
   navigator.getUserMedia({audio: true}, function(audioStream) {
       input = audio_context.createMediaStreamSource(audioStream);
-      input.connect(audio_context.destination);
+      //input.connect(audio_context.destination);
       $('#start').attr('disabled',false);
   }, function(e){ console.log('error occoured= '+e)});
 
