@@ -8,7 +8,7 @@ Update, for those who want to record user's mic and save it in server, uploading
 
 [0]: https://github.com/akrennmair/libmp3lame-js
 [1]: https://github.com/mattdiamond/Recorderjs
-[3]: https://github.com/kazuki/opus.js-sample
+[2]: https://github.com/kazuki/opus.js-sample
 
 
 License
