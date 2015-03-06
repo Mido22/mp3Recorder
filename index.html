@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>mp3 recorder</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-<div class="wrapper">
-<header>
-<h1>Javascript mp3 recorder</h1>
-</header>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>mp3 recorder</title>
+		<style>
+			body {
+			  padding: 50px;
+			  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+		<header>
+			<h1>Javascript opus recorder</h1>
+		</header>
 
-  <p> make sure you enable permissions for recording audio.</p>
-  <div id='controls'>
-    <button id='start' >start</button>
-    <button id='stop' >stop</button>
-  </div>
-  <div id='downloads'>
-  </div>
-  <ul id="recordingslist"></ul>
-  <pre id="log"></pre>
+		  <p> make sure you enable permissions for recording audio.</p>
+		  <div id='controls'>
+				<button id='start' >start</button>
+				<button id='stop' >stop</button>
+		  </div>
+		  <div id='downloads'>
+		  </div>
+		  <ul id="recordingslist"></ul>
 
-<script src="scripts/jQuery.js"></script>
-<script src="scripts/recorder.js"></script>
-<script src="scripts/recorderWorker.js"></script>
-<script src="scripts/libmp3lame.js"></script>
-<script src="scripts/index.js"></script>
-</body>
+		<script src="scripts/recorder.js"></script>
+		<script src="scripts/index.js"></script>
+	</body>
 </html>

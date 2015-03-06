@@ -1,7 +1,5 @@
-var WORKER_PATH = 'encoder.js';
-
-
-var encoder, data=[];    
+importScripts('libmp3lame.js');
+var mp3codec, data=[];    
   
 
 this.onmessage = function(e){
@@ -15,51 +13,29 @@ this.onmessage = function(e){
     case 'exportMP3':
       exportMP3();
       break;
-    case 'clear':
-      clear();
-      break;
   }
 };
 
 function init(config){
-  sampleRate = config.sampleRate;
-  encoder = new Worker(WORKER_PATH);
-  encoder.onmessage = function(e){
-  switch(e.data.cmd){
-    case 'data' : 
-            var length = e.data.buf.length;
-            for(var i=0;i<length;i++)
-              data.push(e.data.buf[i]);
-            console.log('data = '+e.data.buf);break;
-    case 'end' :    
-            var audioBlob = new Blob([new Uint8Array(data)], { type: 'audio/mp3' });
-            self.postMessage(audioBlob);
-            break;
-    }  
-  }
-  encoder.postMessage({
-      cmd: 'init',
-      config: {
-        samplerate: sampleRate, 
-        channels: 1,
-    mode: 3, // setting mode as Stereo.
-    bitrate: 64
-      }
-    });
+  mp3codec = Lame.init();
+  Lame.set_mode(mp3codec, 3);
+  Lame.set_num_channels(mp3codec, 1);
+  Lame.set_out_samplerate(mp3codec, config.sampleRate|| 48000);
+  Lame.set_bitrate(mp3codec, 64);
+  Lame.init_params(mp3codec);
 }
 
-function record(inputBuffer){
-      encoder.postMessage({
-        cmd: 'encode',
-        rbuf: inputBuffer[0],
-        lbuf: inputBuffer[1]
-      });
+function record(ib){
+   var buf = Lame.encode_buffer_ieee_float(mp3codec,  ib[1], ib[0]);
+   var len = buf.size;
+   for(var i=0;i<len;i++)	data.push(buf.data[i]);
 }
 
 function exportMP3(){
-  encoder.postMessage({cmd: 'finish'});      
-}
-
-function clear(){
-  data=[];
+	var audioBlob = new Blob([new Uint8Array(data)], { type: 'audio/mp3' });
+	this.postMessage(audioBlob);  
+	Lame.encode_flush(mp3codec);
+	Lame.close(mp3codec);
+	mp3codec = null;
+    data=[];
 }
